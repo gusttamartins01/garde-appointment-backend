@@ -21,17 +21,21 @@ export async function findAvailableTimes(date: string): Promise<string[]> {
 	const selectedDate = new Date(`${date}T00:00:00`);
 
 	if (Number.isNaN(selectedDate.getTime())) {
-		throw new BadRequestError('Invalid date.');
+		throw new BadRequestError('This date is invalid.');
 	}
 
 	const dayOfWeek = selectedDate.getDay();
 
 	if (dayOfWeek === 0 || dayOfWeek === 6) {
-		return [];
+		throw new BadRequestError(
+			`There are no available time slots on weekends! Please select a valid date.`
+		);
 	}
 
 	if (await isHoliday(date)) {
-		return [];
+		throw new BadRequestError(
+			`Appointments are not available on holidays! Please select a valid date.`
+		);
 	}
 
 	const appointments = await prisma.appointment.findMany({

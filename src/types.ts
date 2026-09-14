@@ -8,3 +8,9 @@ export type Appointment = {
 	dateTime: Date;
 	createdAt: Date;
 };
+
+export type Holiday = {
+	date: string;
+	localName: string;
+	name: string;
+};
