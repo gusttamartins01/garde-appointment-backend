@@ -7,3 +7,8 @@ generator client {
   output   = "./generated"
 }
 
+model Appointment {
+  id        Int      @id @default(autoincrement())
+  dateTime  DateTime @unique @map("date_time")
+  createdAt DateTime @default(now()) @map("created-at")
+}
