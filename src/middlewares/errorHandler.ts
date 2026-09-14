@@ -1,5 +1,10 @@
 import type { NextFunction, Request, Response } from 'express';
-import { NotFoundError, ValidationError } from '../errors/index.ts';
+import {
+	BadRequestError,
+	ConflictError,
+	NotFoundError,
+	ValidationError
+} from '../errors/index.ts';
 import logger from '../lib/logger.ts';
 
 export default function errorHandler(
@@ -8,8 +13,14 @@ export default function errorHandler(
 	response: Response,
 	_next: NextFunction
 ) {
-	if (error instanceof NotFoundError) {
-		response.status(error.statusCode).json({ message: error.message });
+	if (
+		error instanceof BadRequestError ||
+		error instanceof ConflictError ||
+		error instanceof NotFoundError
+	) {
+		response.status(error.statusCode).json({
+			message: error.message
+		});
 		return;
 	}
 
@@ -23,5 +34,7 @@ export default function errorHandler(
 
 	logger.error(error);
 
-	response.status(500).json({ message: 'Internal server error.' });
+	response.status(500).json({
+		message: 'Internal server error.'
+	});
 }
