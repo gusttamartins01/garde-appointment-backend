@@ -1,13 +1,15 @@
 {
-  "name": "garde-appointment-backend",
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "node --watch --env-file=.env src/server.ts"
-  },
-  "devDependencies": {
-    "@types/node": "^26.5.1",
-    "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
-  }
+	"name": "garde-appointment-backend",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "node --watch --env-file=.env src/server.ts"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.13",
+		"@types/node": "^26.5.1",
+		"lefthook": "^2.1.14",
+		"tsx": "^4.23.13",
+		"typescript": "^7.0.2"
+	}
 }
