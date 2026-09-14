@@ -9,7 +9,7 @@ export class NotFoundError extends Error {
 	}
 }
 
-export class ValidateError extends Error {
+export class ValidationError extends Error {
 	statusCode: number;
 	fields: ValidationFieldError[];
 
