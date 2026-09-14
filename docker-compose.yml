@@ -1,0 +1,14 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: garde_appointment
+    ports:
+      - 5433:5432
+    volumes:
+      - garde-appointment-data:/var/lib/postgresql/data
+
+volumes:
+  garde-appointment-data:
