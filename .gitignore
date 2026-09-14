@@ -1,0 +1,24 @@
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Node
+node_modules
+
+# Environment files
+.env
+
+# Vercel
+.vercel
+
+# IDE files
+.idea/
+
+# database files
+*.db
+
+# prisma files
+prisma/generated/
