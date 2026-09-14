@@ -1,0 +1,9 @@
+{
+  "name": "garde-appointment-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.ts"
+  }
+  
+}
