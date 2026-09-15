@@ -47,14 +47,15 @@ O sistema segue as regras definidas no desafio técnico:
 O projeto utiliza uma arquitetura baseada na separação de responsabilidades:
 
 ```text
-Request
+Requisição
    ↓
-Routes
+Rotas
    ↓
-Controllers
+Controladores
    ↓
-Services
+Serviços
    ↓
-Prisma / External API
+Prisma / API externa
    ↓
 PostgreSQL
+```

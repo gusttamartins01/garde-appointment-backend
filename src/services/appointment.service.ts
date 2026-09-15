@@ -21,20 +21,20 @@ export async function findAvailableTimes(date: string): Promise<string[]> {
 	const selectedDate = new Date(`${date}T00:00:00`);
 
 	if (Number.isNaN(selectedDate.getTime())) {
-		throw new BadRequestError('This date is invalid.');
+		throw new BadRequestError('Esta data é inválida.');
 	}
 
 	const dayOfWeek = selectedDate.getDay();
 
 	if (dayOfWeek === 0 || dayOfWeek === 6) {
 		throw new BadRequestError(
-			`There are no available time slots on weekends! Please select a valid date.`
+			`Não há horários disponíveis nos finais de semana! Selecione uma data válida.`
 		);
 	}
 
 	if (await isHoliday(date)) {
 		throw new BadRequestError(
-			`Appointments are not available on holidays! Please select a valid date.`
+			`Agendamentos não estão disponíveis em feriados! Selecione uma data válida.`
 		);
 	}
 
@@ -75,7 +75,7 @@ export async function insertAppointment(
 	const availableTimes = await findAvailableTimes(data.date);
 
 	if (!availableTimes.includes(data.time)) {
-		throw new ConflictError('This time is not available.');
+		throw new ConflictError('Este horário não está disponível.');
 	}
 
 	const dateTime = new Date(`${data.date}T${data.time}:00`);

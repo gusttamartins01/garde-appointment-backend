@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import { pinoHttp } from 'pino-http';
 import logger from './lib/logger.ts';
@@ -8,13 +9,15 @@ const app = express();
 
 app.use(pinoHttp({ logger }));
 
+app.use(cors());
+
 app.use(express.json());
 
 app.use(appointmentRoute);
 
 app.use((_request, response) => {
 	response.status(404).json({
-		message: 'Not found'
+		message: 'Recurso não encontrado'
 	});
 });
 

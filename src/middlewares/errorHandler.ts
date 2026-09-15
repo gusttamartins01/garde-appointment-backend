@@ -35,6 +35,6 @@ export default function errorHandler(
 	logger.error(error);
 
 	response.status(500).json({
-		message: 'Internal server error.'
+		message: 'Erro interno do servidor.'
 	});
 }

@@ -12,7 +12,7 @@ export default function validate(schema: ZodType) {
 				message: issue.message
 			}));
 
-			return next(new ValidationError('Invalid data', fields));
+			return next(new ValidationError('Dados inválidos', fields));
 		}
 
 		request.body = result.data;
